@@ -12,4 +12,10 @@ export class SplashscreenPage implements OnInit {
   ngOnInit() {
   }
 
+  // login with google
+  login_With_Google() {
+
+
+    // then redirect to chatlist
+  }
 }

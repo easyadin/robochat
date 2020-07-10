@@ -28,6 +28,7 @@ ion-content {
     h1 {
         font-weight: 700;
         font-size: 30px;
+        line-height: 37px;
     }
 
     p {
@@ -36,16 +37,52 @@ ion-content {
     }
 }
 
-.googleButtons {
-    border-radius: 24px;
-    background-color: #7764fa;
+.buttonsContainer {
     width: 100%;
     justify-content: center;
+    flex-wrap: wrap;
+    * {
+        color: #ffffff;
+        text-transform: inherit;
+        font-weight: 400;
+    }
+    ion-button {
+        margin: 10px;
+    }
+
+    ion-icon {
+        font-size: 30px;
+        position: absolute;
+        left: 0;
+        padding: 5px;
+    }
 }
 
+.googleButtons {
+    border-radius: 24px;
+    background-color: #7764fa !important;
+    height: 52px;
+    width: 268px;
+}
 .emailButtons {
     border-radius: 24px;
-    background-color: #d48b19;
-    width: 100%;
-    justify-content: center;
+    background-color: #d48b19 !important;
+    height: 52px;
+    width: 268px;
+}
+
+ion-footer {
+    * {
+        background-color: transparent;
+        --background: transparent;
+    }
+    ion-buttons {
+        ion-button {
+            width: 100%;
+            text-align: center;
+            text-transform: initial;
+            font-weight: 300;
+            color: #ffffff;
+        }
+    }
 }

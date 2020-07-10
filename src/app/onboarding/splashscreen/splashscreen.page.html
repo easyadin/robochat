@@ -1,5 +1,5 @@
 <ion-content [fullscreen]="true">
-  <img src="../../../assets/splashbg.svg" class="splashImg">
+  <img src="../../../assets/Group 170@2x.png" class="splashImg">
 
   <ion-item detail="false" lines="none">
     <ion-label class="splashLabel">
@@ -11,19 +11,14 @@
 
   <!-- signup option -->
   <ion-list lines="none">
-    <ion-item detail="false">
-      <ion-buttons class="googleButtons">
-        <ion-button>
-          <ion-icon name="logo-google"></ion-icon>
+    <ion-item detail="false" class="ion-padding">
+      <ion-buttons class="buttonsContainer">
+        <ion-button class="googleButtons" (click)="login_With_Google()">
+          <ion-icon name="logo-google" slot="start"></ion-icon>
           Sign up with Google
         </ion-button>
-      </ion-buttons>
-    </ion-item>
-
-    <ion-item detail="false">
-      <ion-buttons class="emailButtons">
-        <ion-button>
-          <ion-icon name="mail"></ion-icon>
+        <ion-button class="emailButtons" routerLink="/register">
+          <ion-icon name="mail" slot="start"></ion-icon>
           Sign up with Email
         </ion-button>
       </ion-buttons>
@@ -31,7 +26,7 @@
   </ion-list>
 </ion-content>
 
-<ion-footer>
+<ion-footer class="ion-no-border">
   <ion-toolbar>
     <ion-buttons>
       <ion-button routerLink="/login">Already have an account? Login </ion-button>
