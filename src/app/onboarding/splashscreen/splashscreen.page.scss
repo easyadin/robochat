@@ -1,0 +1,51 @@
+ion-content {
+    background-color: #481788;
+    --background: #481788;
+
+    * {
+        background-color: transparent;
+        --background: transparent;
+    }
+    .splashImg {
+        display: block;
+        margin: auto;
+        padding: 32px;
+    }
+
+    ion-list {
+        ion-item {
+            ion-buttons {
+            }
+        }
+    }
+}
+
+.splashLabel {
+    * {
+        text-align: center;
+        color: #ffffff;
+    }
+    h1 {
+        font-weight: 700;
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 16px;
+        font-weight: 300;
+    }
+}
+
+.googleButtons {
+    border-radius: 24px;
+    background-color: #7764fa;
+    width: 100%;
+    justify-content: center;
+}
+
+.emailButtons {
+    border-radius: 24px;
+    background-color: #d48b19;
+    width: 100%;
+    justify-content: center;
+}
