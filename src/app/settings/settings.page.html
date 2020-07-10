@@ -1,9 +1,64 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>settings</ion-title>
+    <ion-title>Settings</ion-title>
+
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form #personalInformation="ngForm" (ngSubmit)="onSubmit(personalInformation)">
+    <ion-list>
+      <ion-item detail="false" lines="none">
+        <input style="display: none;" #photo type="file">
+        <ion-avatar button>
+          <img
+            src="https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+          <ion-buttons>
+            <button (click)="photo.click()">
+              <ion-icon name="camera"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-avatar>
+      </ion-item>
 
+      <!-- fullname -->
+      <ion-item style="padding-top: 16px;">
+        <ion-label position="stacked">
+          FULL NAME
+        </ion-label>
+        <ion-input type="name" ngModel name="name" #name="ngModel" required></ion-input>
+      </ion-item>
+      <!-- email -->
+      <ion-item>
+        <ion-label position="stacked">EMAIL</ion-label>
+        <ion-input type="email" ngModel name="email" #email="ngModel"></ion-input>
+      </ion-item>
+      <!-- password -->
+      <ion-item>
+        <ion-label position="stacked">PASSWORD</ion-label>
+        <ion-input type="password" ngModel name="password" #password="ngModel"></ion-input>
+      </ion-item>
+      <!-- confirm password -->
+      <ion-item>
+        <ion-label position="stacked">CONFIRM PASSWORD</ion-label>
+        <ion-input type="password" ngModel name="confirmpassword" #password="ngModel"></ion-input>
+      </ion-item>
+      <!-- confirm password -->
+      <ion-item>
+        <ion-label position="stacked">Mobile Number</ion-label>
+        <ion-input type="text" ngModel name="confirmpassword" #password="ngModel"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-buttons slot="primary" class="ion-padding">
+      <ion-button fill="solid" shape="round" color="primary" [disabled]="!personalInformation.valid" type="submit"> Save
+      </ion-button>
+    </ion-buttons>
+  </form>
+  <!-- enable location -->
+  <ion-item detail="false" lines="none">
+    <ion-label>Enabler Location</ion-label>
+    <ion-toggle ngModel name="location"></ion-toggle>
+  </ion-item>
 </ion-content>

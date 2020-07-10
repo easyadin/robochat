@@ -1,0 +1,19 @@
+ion-avatar {
+    height: 100px;
+    width: 100px;
+
+    ion-buttons {
+        position: absolute;
+        bottom: 0;
+        transform: translate(55px, -4px);
+        button {
+            height: 36px;
+            background-color: #d48b19;
+            border-radius: 100%;
+        }
+        ion-icon {
+            font-size: 25px;
+            color: #ffffff;
+        }
+    }
+}
