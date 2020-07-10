@@ -46,16 +46,34 @@ export class AuthService {
   // login with google
   login_with_google() {
     // check platform
-    if (this.platform.is('mobile')) {
-      this.googleplus.login({}).then(
-        resp =>{
-          console.log(resp)
+    if (this.platform.is('hybrid')) {
+      return this.googleplus.login({}).then(
+        resp => {
+          const user_data_google = resp; // Data
+          return this.auth.signInWithCredential(auth.GoogleAuthProvider.credential(null, user_data_google.accessToken))
+            .then((response) => {
+              this._userIsAuthenticated = true;
+              // save to localstorage
+              localStorage.setItem('rbcUser', JSON.stringify(response.user.providerData))
+              // user login occured
+              this.authenticationSubJect.next(this._userIsAuthenticated)
+              // get user UID
+              this.userUID = response.user.uid;
+              localStorage.setItem('rbcUserUID', this.userUID)
+              // redirect user to chatlist
+              this.router.navigateByUrl('/maintabs/chatlist')
+            }).catch(err => {
+              this.alertModal("Somthing went wrong, Probably my fault", err);
+              console.log(err)
+            })
         }
-      )
+      ).catch(err => {
+        this.alertModal("Somthing went wrong, Probably my fault", err);
+        console.log(err)
+      })
     }
     else {
       return this.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(resp => {
-        console.log(resp.user.providerData)
         this._userIsAuthenticated = true;
         // save to localstorage
         localStorage.setItem('rbcUser', JSON.stringify(resp.user.providerData))

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 
@@ -8,13 +9,15 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class SplashscreenPage implements OnInit {
 
-  constructor(private authSrv: AuthService) { }
+  constructor(private authSrv: AuthService,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
   // login with google
-  login_With_Google() {
-    this.authSrv.login_with_google();
+  // not working yet 
+  login_with_google() {
+    this.authSrv.login_with_google()
   }
 }

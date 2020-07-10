@@ -14,7 +14,7 @@
     </ion-label>
   </ion-item>
 
-  <form #logininformation="ngForm" (ngSubmit)="onSubmit(logininformation)">
+  <form #logininformation="ngForm" (ngSubmit)="onSubmit(logininformation.value)">
     <ion-list>
       <ion-item detail="false" lines="none">
         <input style="display: none;" #photo type="file">
@@ -44,19 +44,20 @@
     <ion-list lines="none">
       <ion-item detail="false" class="ion-padding">
         <ion-buttons class="buttonsContainer">
-          <ion-button class="emailButtons" (click)="login_With_Email()">
+          <ion-button class="emailButtons" type="submit">
             Login
           </ion-button>
         </ion-buttons>
       </ion-item>
     </ion-list>
   </form>
-</ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-    <ion-buttons>
-      <ion-button routerLink="/recoverpassword">I can't remember my password. Recover </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-buttons>
+        <ion-button routerLink="/recoverpassword">I can't remember my password. Recover </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>
