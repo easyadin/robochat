@@ -1,9 +1,64 @@
-<ion-header>
+<ion-header class="mainheader">
   <ion-toolbar>
-    <ion-title>mainchat</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="maintabs/chatlist"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon name="call"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="videocam"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-item lines="none" detail="false">
+      <ion-avatar slot="start">
+        <span></span>
+        <img
+          src="https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+      </ion-avatar>
+      <ion-label>
+
+        <h1>Joseph Martin</h1>
+        <p>Online</p>
+      </ion-label>
+    </ion-item>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <!-- chat area -->
+  <ion-list lines="none" class="ion-padding" class="message_list">
+    <ion-label>
+      <p>Sup bro</p>
+      <ion-text slot="primary">11:10</ion-text>
+    </ion-label>
+    <ion-label>
+      <p>Hey</p>
+      <ion-text slot="primary">11:10</ion-text>
+    </ion-label>
+    <ion-label>
+      <p>How's it going</p>
+      <ion-text slot="primary">11:10</ion-text>
+    </ion-label>
+    <ion-label>
+      <p>not bad</p>
+      <ion-text slot="primary">11:10</ion-text>
+    </ion-label>
+  </ion-list>
 </ion-content>
+
+
+<ion-footer>
+  <ion-toolbar class="footerToolbar">
+    <ion-item detail="false" lines="none">
+      <ion-input placeholder="Type a message..."></ion-input>
+      <ion-buttons slot="">
+        <ion-button>
+          <ion-icon name="send"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>
