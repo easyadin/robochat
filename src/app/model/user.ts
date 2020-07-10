@@ -5,22 +5,16 @@ export class User {
         public email: string,
         public password: string,
         public location: any,
-        public contactlist: any
-    ) {
-
-    }
+        public status: string,
+    ) { }
 }
-
 
 export class currentUser {
     constructor(
         public fullname: string,
         public phone: string,
         public email: string,
-        public password: string,
         public location: any,
-        public contactlist: any
-    ) {
-
-    }
+        public status: string,
+    ) { }
 }

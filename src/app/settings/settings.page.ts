@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-settings',
@@ -7,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsPage implements OnInit {
 
-  constructor() { }
+  constructor(private authSrv: AuthService) { }
 
   ngOnInit() {
   }
 
 
-  onSubmit(){
-    
+  onSubmit() {
+
+  }
+
+
+  logout() {
+    this.authSrv.logout();
   }
 }

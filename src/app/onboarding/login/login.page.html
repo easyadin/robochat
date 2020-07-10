@@ -1,9 +1,62 @@
-<ion-header>
+<!-- <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-buttons>
+      <ion-back-button defaultHref="/splashscreen"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <ion-item detail="false" lines="none" style="margin-top: 30px;">
+    <ion-label>
+      <p>Welcome back</p>
+      <h1>RoboChat</h1>
+    </ion-label>
+  </ion-item>
 
+  <form #logininformation="ngForm" (ngSubmit)="onSubmit(logininformation)">
+    <ion-list>
+      <ion-item detail="false" lines="none">
+        <input style="display: none;" #photo type="file">
+        <ion-avatar button>
+          <img
+            src="https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+          <ion-buttons>
+            <button (click)="photo.click()">
+              <ion-icon name="camera"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-avatar>
+      </ion-item>
+      <!-- email -->
+      <ion-item style="margin-top: 50px;">
+        <ion-label position="stacked">EMAIL</ion-label>
+        <ion-input type="email" ngModel name="email" #email="ngModel"></ion-input>
+      </ion-item>
+      <!-- password -->
+      <ion-item>
+        <ion-label position="stacked">PASSWORD</ion-label>
+        <ion-input type="password" ngModel name="password" #password="ngModel"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <!-- signup option -->
+    <ion-list lines="none">
+      <ion-item detail="false" class="ion-padding">
+        <ion-buttons class="buttonsContainer">
+          <ion-button class="emailButtons" (click)="login_With_Email()">
+            Login
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+  </form>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button routerLink="/recoverpassword">I can't remember my password. Recover </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

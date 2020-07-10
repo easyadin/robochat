@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "robochat-95fa9": {
+      "hosting": {
+        "app": [
+          "robochat-95fa9"
+        ]
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -16,11 +17,13 @@ const routes: Routes = [
       {
         path: ':id',
         loadChildren: () => import('./mainchat/mainchat.module').then(m => m.MainchatPageModule),
+        canLoad: [AuthGuard]
       }]
   },
   {
     path: 'addfriend',
-    loadChildren: () => import('./addfriend/addfriend.module').then(m => m.AddfriendPageModule)
+    loadChildren: () => import('./addfriend/addfriend.module').then(m => m.AddfriendPageModule),
+    canLoad: [AuthGuard]
   },
   {
     path: 'login',
@@ -32,11 +35,12 @@ const routes: Routes = [
   },
   {
     path: 'recoverpassword',
-    loadChildren: () => import('./onboarding/recoverpassword/recoverpassword.module').then(m => m.RecoverpasswordPageModule)
+    loadChildren: () => import('./onboarding/recoverpassword/recoverpassword.module').then(m => m.RecoverpasswordPageModule),
   },
   {
     path: '',
-    loadChildren: () => import('./maintabs/maintabs.module').then(m => m.MaintabsPageModule)
+    loadChildren: () => import('./maintabs/maintabs.module').then(m => m.MaintabsPageModule),
+    canLoad: [AuthGuard]
   },
 ];
 

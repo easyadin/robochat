@@ -12,4 +12,13 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+
+  onSubmit() {
+
+  }
+
+
+  login_With_Email() {
+
+  }
 }

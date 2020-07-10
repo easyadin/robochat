@@ -1,9 +1,66 @@
-<ion-header>
+<!-- <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>register</ion-title>
+    <ion-buttons>
+      <ion-back-button defaultHref="/splashscreen"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <ion-item detail="false" lines="none" style="margin-top: 30px;">
+    <ion-label>
+      <p>Welcome back</p>
+      <h1>RoboChat</h1>
+    </ion-label>
+  </ion-item>
 
+  <form #logininformation="ngForm" (ngSubmit)="onSubmit(logininformation.value)">
+    <ion-list>
+      <ion-item detail="false" lines="none">
+        <input style="display: none;" #photo type="file">
+        <ion-avatar button>
+          <img src="../../../assets/userProfileTemp.svg">
+          <ion-buttons>
+            <button (click)="photo.click()">
+              <ion-icon name="camera"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-avatar>
+      </ion-item>
+      <!-- fullname -->
+      <ion-item style="margin-top: 50px;">
+        <ion-label position="stacked">FULL NAME</ion-label>
+        <ion-input type="name" ngModel name="name" #email="ngModel"></ion-input>
+      </ion-item>
+      <!-- email -->
+      <ion-item>
+        <ion-label position="stacked">EMAIL</ion-label>
+        <ion-input type="email" ngModel name="email" #email="ngModel"></ion-input>
+      </ion-item>
+      <!-- password -->
+      <ion-item>
+        <ion-label position="stacked">PASSWORD</ion-label>
+        <ion-input type="password" ngModel name="password" #password="ngModel"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <!--  option -->
+    <ion-list lines="none">
+      <ion-item detail="false" class="ion-padding">
+        <ion-buttons class="buttonsContainer">
+          <ion-button class="emailButtons" type="submit">
+            Create account
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+  </form>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button routerLink="/login">I have an account. Login </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-splashscreen',
@@ -7,15 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SplashscreenPage implements OnInit {
 
-  constructor() { }
+  constructor(private authSrv: AuthService) { }
 
   ngOnInit() {
   }
 
   // login with google
   login_With_Google() {
-
-
-    // then redirect to chatlist
+    this.authSrv.login_with_google();
   }
 }

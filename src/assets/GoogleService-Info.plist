@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>3539091703-anfua1n2ji85586f5hnd1otm692blit1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.3539091703-anfua1n2ji85586f5hnd1otm692blit1</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>3539091703-iu7irfc6d6c728vfdh4obub82nh8lm0r.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAxwPTcWqXtVGjvaE-fvjynIpbt8S9H3h8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>3539091703</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.roboad.robochat</string>
+	<key>PROJECT_ID</key>
+	<string>robochat-95fa9</string>
+	<key>STORAGE_BUCKET</key>
+	<string>robochat-95fa9.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:3539091703:ios:f13aaf3872682557d553f2</string>
+	<key>DATABASE_URL</key>
+	<string>https://robochat-95fa9.firebaseio.com</string>
+</dict>
+</plist>

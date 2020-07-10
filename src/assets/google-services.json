@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "3539091703",
+    "firebase_url": "https://robochat-95fa9.firebaseio.com",
+    "project_id": "robochat-95fa9",
+    "storage_bucket": "robochat-95fa9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3539091703:android:b1901ec15d0afae9d553f2",
+        "android_client_info": {
+          "package_name": "com.roboad.robochat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "3539091703-iu7irfc6d6c728vfdh4obub82nh8lm0r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.roboad.robochat",
+            "certificate_hash": "e5c4338a4753b3f6446ab2c10611d4953c2d626d"
+          }
+        },
+        {
+          "client_id": "3539091703-iev0scrlaoucpv97ft13b4mgn6mi8ld0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCueO10q93ICRsb39nv0b1zY8kZTEMWibw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "3539091703-iev0scrlaoucpv97ft13b4mgn6mi8ld0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
