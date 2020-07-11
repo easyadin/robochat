@@ -1,6 +1,6 @@
 export class Chat {
     constructor(
-        public message: string,
+        public messages: string,
         public timestamp: any,
         public participantID: any,
     ) {

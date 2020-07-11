@@ -31,7 +31,7 @@
   <!-- chat area -->
   <ion-list lines="none" class="ion-padding" class="message_list">
     <ion-label *ngFor="let chat of chats | async">
-      <p>{{chat.Message}}</p>
+      <p>{{chat.message}}</p>
       <ion-text slot="primary">{{chat.Timestamp}}</ion-text>
     </ion-label>
     <!-- <ion-label>

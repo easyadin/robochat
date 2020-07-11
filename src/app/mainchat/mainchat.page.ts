@@ -22,28 +22,27 @@ export class MainchatPage implements OnInit, OnDestroy {
   tempChat: any;
   private chatSub: Subscription;
 
-  chatID = [];
-
+  // chatID = [];
+  chatID: string;
   ngOnInit() {
-    this.chatSub = this.chatService.chatRefChanged.subscribe(data => {
-      this.tempChat = data;
-      this.chats = data;
-
-      console.log(this.tempChat)
-    })
-    this.chatService.fetchChats()
-
-
-    this.chatService.filterChat(this.chatID);
-
     // pair up id
     this.activatedRoute.paramMap.subscribe(paramMap => {
       if (!paramMap.has('id')) {
         this.navCtrl.navigateBack('/maintabs/chatlist');
         return;
       }
-      this.chatID.push(paramMap.get('id'))
-      this.chatID.push(localStorage.getItem('rbcUserUID'))
+      // this.chatID.push(paramMap.get('id'))
+      // this.chatID.push(localStorage.getItem('rbcUserUID'))
+      this.chatID = `${paramMap.get('id')} ${localStorage.getItem('rbcUserUID')}`
+      this.chatService.filterChat(this.chatID);
+
+      this.chatSub = this.chatService.sessionChatChanged.subscribe(data => {
+        this.tempChat = data;
+        this.chats = data;
+
+        console.log(this.tempChat)
+      })
+
     })
 
   }
@@ -58,7 +57,7 @@ export class MainchatPage implements OnInit, OnDestroy {
 
 
   send() {
-    this.chatService.send(this.text, this.chatID)
+    this.chatService.send(this.text, this.chatID, localStorage.getItem('rbcUserUID'))
     this.text = ''
   }
 
