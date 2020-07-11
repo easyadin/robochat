@@ -1,3 +1,4 @@
+import { ChatService } from './../services/chat.service';
 import { Injectable } from '@angular/core';
 import { LoadingController, AlertController, Platform } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -29,7 +30,8 @@ export class AuthService {
     public platform: Platform,
     public loadingController: LoadingController,
     public alertController: AlertController,
-    public auth: AngularFireAuth, private afs: AngularFirestore, private router: Router
+    public auth: AngularFireAuth, private afs: AngularFirestore,
+    private router: Router,
   ) {
 
     this.isUploading = false;
@@ -150,18 +152,33 @@ export class AuthService {
     await spinner.present()
     this.auth.signOut().then(
       resp => {
-        spinner.dismiss()
-        // delete from localStorage
-        localStorage.removeItem('rbcUser')
-        localStorage.removeItem('rbcUserUID')
-        localStorage.removeItem('contacts')
-        this._userIsAuthenticated = false;
-        this.authenticationSubJect.next(this._userIsAuthenticated)
-        this.currentUserSubject.next(this.currentUser)
-        this.router.navigateByUrl('/splashscreen')
+        // this.afs.doc<any>(`users/${localStorage.getItem('rbcUserUID')}`).valueChanges().subscribe(
+        //   user => {
+        //     // change user status offline
+        //     this.afs.collection('users').doc(localStorage.getItem('rbcUserUID')).set({
+        //       email: user.email,
+        //       fullname: user.fullname,
+        //       location: user.location,
+        //       password: user.password,
+        //       phone: user.phone,
+        //       status: "offline"
+        //     }).then(() => {
+        //       spinner.dismiss()
+        //       // delete from localStorage
+        //       localStorage.removeItem('rbcUser')
+        //       localStorage.removeItem('rbcUserUID')
+        //       localStorage.removeItem('contacts')
+        //       this._userIsAuthenticated = false;
+        //       this.authenticationSubJect.next(this._userIsAuthenticated)
+        //       this.currentUserSubject.next(this.currentUser)
+        //       this.router.navigateByUrl('/splashscreen')
+        //     })
+        //   }
+        // )
 
-
-        // change user status offline
+        this.afs.collection('users').doc(localStorage.getItem('rbcUserUID')).update({
+          "status": "offline"
+        })
       }
 
     );

@@ -26,6 +26,8 @@ export class ChatService {
     this.contactListChanged.next(this.contactList);
   }
 
+
+
   contactList: Contact[] = [];
   newContact: Contact;
 
@@ -35,6 +37,62 @@ export class ChatService {
   sessionChat: any = [];
   sessionChatChanged = new Subject;
 
+  chatList: any = []
+  chatListChanged = new Subject();
+
+
+  // chat list
+  // split chat id to check if this user is included
+  updateChatList() {
+    this.afs.collection('chats').snapshotChanges().pipe(
+      map(doc => {
+        return doc.map(d => {
+          const conversation = d.payload.doc.data()
+          conversation.id = d.payload.doc.id
+          return conversation
+        })
+      })
+    ).subscribe(ids => {
+      // get this user
+      const thisUser = localStorage.getItem('rbcUserUID')
+      // split chat id 
+      ids.forEach(id => {
+        if (id.id.split(' ').includes(thisUser)) {
+          this.chatList.push(id)
+          // sort by time
+          this.chatList.sort((a, b) => (a.messages.createdAt < b.messages.createdAt) ? 1 : -1)
+         
+        }
+      })
+      this.chatListChanged.next(this.chatList)
+    })
+    //.subscribe(
+    //   resp => {
+    //     // get this user
+    //     const thisUser = localStorage.getItem('rbcUserUID')
+    //     // check
+    //     resp.forEach(items => { // return chats
+    //       items.messages.forEach(message => {
+    //         // split chat id 
+    //         if (message.chatID.split(' ').includes(thisUser)) {
+
+    //           this.chatList.push(items.messages)
+    //         }
+    //       })
+
+
+    //     })
+    //     this.chatListChanged.next(this.chatList)
+    //   }
+    // )
+  }
+
+
+
+
+
+
+
   // fetch chats
   fetchChats() {
     this.chatRef = this.afs.collection('chats', ref => ref.orderBy('Timestamp')).valueChanges();
@@ -43,7 +101,6 @@ export class ChatService {
 
   // fetch chats for session
   filterChat(chatID: string) {
-
     this.afs.collection('chats').doc(chatID).valueChanges().subscribe(
       chat => {
         if (chat !== undefined) {
@@ -105,6 +162,10 @@ export class ChatService {
       this.alertModal("User not found");
     }
   }
+
+getPerson(email){
+  return this.afs.doc<any>(`users/${email}`).valueChanges()
+}
 
   // get contactList 
   getContactList() {
