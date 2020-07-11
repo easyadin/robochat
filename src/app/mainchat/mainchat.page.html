@@ -30,7 +30,7 @@
 <ion-content>
   <!-- chat area -->
   <ion-list lines="none" class="ion-padding" class="message_list">
-    <ion-label *ngFor="let chat of chats | async">
+    <ion-label *ngFor="let chat of chats">
       <p>{{chat.message}}</p>
       <ion-text slot="primary">{{chat.Timestamp}}</ion-text>
     </ion-label>

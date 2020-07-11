@@ -44,16 +44,30 @@ export class ChatService {
   // fetch chats for session
   filterChat(chatID: string) {
 
-    console.log(chatID)
-    // return this.afs.collection<any>('chats').doc(chatID).snapshotChanges().pipe(
-    //   map(doc => {
-    //     return { id: doc.payload, ...doc.payload.data }
-    //   })
-    // )
-    this.sessionChat = this.afs.collection('chats').doc(chatID).valueChanges();
-    this.sessionChatChanged.next(this.sessionChat)
+    this.afs.collection('chats').doc(chatID).valueChanges().subscribe(
+      chat => {
+        if (chat !== undefined) {
+          this.sessionChat = chat.messages
+          this.sessionChatChanged.next(this.sessionChat)
+        }
+        if (chat == undefined) {
+          // split and check again
+          const idsplit = chatID.split(' ');
+          const fliped = `${idsplit[1]} ${idsplit[0]}`
+          this.afs.collection('chats').doc(fliped).valueChanges().subscribe(
+            res => {
+              this.sessionChat = res.messages
+              this.sessionChatChanged.next(this.sessionChat)
+            }
+          )
+        }
 
-    console.log(this.sessionChat)
+      },
+      // message undefined
+      err => {
+
+      }
+    )
   }
 
   filterChatTrigger() {
