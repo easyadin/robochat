@@ -31,27 +31,28 @@
         <ion-label position="stacked">
           FULL NAME
         </ion-label>
-        <ion-input type="name" ngModel name="name" #name="ngModel" required></ion-input>
+        <ion-input type="name" [(ngModel)]="fname" name="name" required></ion-input>
       </ion-item>
       <!-- email -->
       <ion-item>
         <ion-label position="stacked">EMAIL</ion-label>
-        <ion-input type="email" ngModel name="email" #email="ngModel"></ion-input>
+        <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
       </ion-item>
       <!-- password -->
       <ion-item>
         <ion-label position="stacked">PASSWORD</ion-label>
-        <ion-input type="password" ngModel name="password" #password="ngModel"></ion-input>
+        <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
       </ion-item>
       <!-- confirm password -->
       <ion-item>
         <ion-label position="stacked">CONFIRM PASSWORD</ion-label>
-        <ion-input type="password" ngModel name="confirmpassword" #password="ngModel"></ion-input>
+        <ion-input type="password" [(ngModel)]="confirmpassword" name="confirmpassword" required>
+        </ion-input>
       </ion-item>
       <!-- confirm password -->
       <ion-item>
         <ion-label position="stacked">Mobile Number</ion-label>
-        <ion-input type="text" ngModel name="confirmpassword" #password="ngModel"></ion-input>
+        <ion-input type="text" [(ngModel)]="phone" name="phone" required></ion-input>
       </ion-item>
     </ion-list>
 

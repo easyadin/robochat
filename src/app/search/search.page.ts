@@ -1,4 +1,9 @@
+import { FilterPipe } from './../services/filter.pipe';
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from '../services/chat.service';
+import { Contact } from '../model/chat';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-search',
@@ -7,9 +12,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPage implements OnInit {
 
-  constructor() { }
+  constructor(private chatService: ChatService) { }
+  
+  contactList: Contact[] = [];
+  contactListSub: Subscription;
+
+  searchText = '';
 
   ngOnInit() {
+    this.contactListSub = this.chatService.contactListChanged.subscribe(list => {
+      this.contactList = list;
+    })
+    this.chatService.getContactList();
   }
 
+
+
+
+  
+  ngOnDestroy(): void {
+    this.contactListSub.unsubscribe()
+  }
 }

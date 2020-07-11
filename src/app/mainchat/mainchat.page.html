@@ -30,22 +30,22 @@
 <ion-content>
   <!-- chat area -->
   <ion-list lines="none" class="ion-padding" class="message_list">
-    <ion-label>
-      <p>Sup bro</p>
-      <ion-text slot="primary">11:10</ion-text>
+    <ion-label *ngFor="let chat of chats | async">
+      <p>{{chat.Message}}</p>
+      <ion-text slot="primary">{{chat.Timestamp}}</ion-text>
     </ion-label>
-    <ion-label>
+    <!-- <ion-label>
       <p>Hey</p>
       <ion-text slot="primary">11:10</ion-text>
-    </ion-label>
-    <ion-label>
+    </ion-label> -->
+    <!-- <ion-label>
       <p>How's it going</p>
       <ion-text slot="primary">11:10</ion-text>
     </ion-label>
     <ion-label>
       <p>not bad</p>
       <ion-text slot="primary">11:10</ion-text>
-    </ion-label>
+    </ion-label> -->
   </ion-list>
 </ion-content>
 
@@ -53,9 +53,9 @@
 <ion-footer>
   <ion-toolbar class="footerToolbar">
     <ion-item detail="false" lines="none">
-      <ion-input placeholder="Type a message..."></ion-input>
+      <ion-input placeholder="Type a message..." [(ngModel)]="text"></ion-input>
       <ion-buttons slot="">
-        <ion-button>
+        <ion-button (click)="send()">
           <ion-icon name="send"></ion-icon>
         </ion-button>
       </ion-buttons>

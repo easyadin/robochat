@@ -3,20 +3,19 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-searchbar animated></ion-searchbar>
+    <ion-searchbar animated [(ngModel)]="searchText"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list lines="none">
-    <ion-item button detail="false" [routerLink]="['/','mainchat',1]">
+    <ion-item button detail="false" *ngFor="let contact of contactList | appFilter: searchText"
+      [routerLink]="['/','mainchat',contact.email]">
       <ion-avatar slot="start">
-        <span></span>
-        <img
-          src="https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+        <img src="../../../assets/userProfileTemp.svg">
       </ion-avatar>
       <ion-label>
-        <h1>Jeseph Martin</h1>
+        <h1>{{contact.name}}</h1>
       </ion-label>
     </ion-item>
   </ion-list>

@@ -1,3 +1,4 @@
+import { HighlightDirective } from './../services/highlight.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -7,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { SearchPageRoutingModule } from './search-routing.module';
 
 import { SearchPage } from './search.page';
+import { FilterPipe } from './../services/filter.pipe';
+
 
 @NgModule({
   imports: [
@@ -15,6 +18,6 @@ import { SearchPage } from './search.page';
     IonicModule,
     SearchPageRoutingModule
   ],
-  declarations: [SearchPage]
+  declarations: [SearchPage, FilterPipe, HighlightDirective,]
 })
-export class SearchPageModule {}
+export class SearchPageModule { }

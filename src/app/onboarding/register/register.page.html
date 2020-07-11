@@ -17,11 +17,11 @@
   <form #logininformation="ngForm" (ngSubmit)="onSubmit(logininformation.value)">
     <ion-list>
       <ion-item detail="false" lines="none">
-        <input style="display: none;" #photo type="file">
+        <input style="display: none;" #photo type="file" ngModel #photo="ngModel" name="photo">
         <ion-avatar button>
           <img src="../../../assets/userProfileTemp.svg">
           <ion-buttons>
-            <button (click)="photo.click()">
+            <button (click)="photo.click()" type="button">
               <ion-icon name="camera"></ion-icon>
             </button>
           </ion-buttons>
@@ -30,17 +30,17 @@
       <!-- fullname -->
       <ion-item style="margin-top: 50px;">
         <ion-label position="stacked">FULL NAME</ion-label>
-        <ion-input type="name" ngModel name="name" #email="ngModel"></ion-input>
+        <ion-input type="name" ngModel name="name" #email="ngModel" required></ion-input>
       </ion-item>
       <!-- email -->
       <ion-item>
         <ion-label position="stacked">EMAIL</ion-label>
-        <ion-input type="email" ngModel name="email" #email="ngModel"></ion-input>
+        <ion-input type="email" ngModel name="email" #email="ngModel" required></ion-input>
       </ion-item>
       <!-- password -->
       <ion-item>
         <ion-label position="stacked">PASSWORD</ion-label>
-        <ion-input type="password" ngModel name="password" #password="ngModel"></ion-input>
+        <ion-input type="password" ngModel name="password" #password="ngModel" required></ion-input>
       </ion-item>
     </ion-list>
 
@@ -48,7 +48,7 @@
     <ion-list lines="none">
       <ion-item detail="false" class="ion-padding">
         <ion-buttons class="buttonsContainer">
-          <ion-button class="emailButtons" type="submit">
+          <ion-button class="emailButtons" type="submit" [disabled]="!logininformation.valid">
             Create account
           </ion-button>
         </ion-buttons>

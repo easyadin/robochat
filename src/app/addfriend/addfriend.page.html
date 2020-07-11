@@ -1,9 +1,41 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>addfriend</ion-title>
+    <ion-buttons>
+      <ion-back-button defaultHref="/maintabs/chatlist"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <form #addFriend="ngForm" (ngSubmit)="onSubmit(addFriend.value)">
+    <ion-list>
+      <!-- email -->
+      <ion-item style="margin-top: 50px;">
+        <ion-label position="stacked">Friend Email</ion-label>
+        <ion-input type="email" ngModel name="email" #email="ngModel" required></ion-input>
+      </ion-item>
+    </ion-list>
 
+    <!-- signup option -->
+    <ion-list lines="none" class="recoverlist">
+      <ion-item detail="false" class="ion-padding">
+        <ion-buttons class="buttonsContainer">
+          <ion-button class="emailButtons" [disabled]="!addFriend.valid" type="submit">
+            Add Friend
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+      <ion-item lines="none" detail="false">
+        <ion-label>
+          <p>We will send an invite if your friend is not yet registered</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <!-- found friend -->
+    <ion-item [routerLink]="['/','mainchat', contact.email]" *ngIf="contact">
+      <ion-label>{{contact.name}}</ion-label>
+    </ion-item>
+  </form>
 </ion-content>
+

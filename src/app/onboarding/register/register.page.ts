@@ -15,16 +15,24 @@ export class RegisterPage implements OnInit {
   }
 
   user: User;
+  userEmail;
 
   onSubmit(form) {
+    this.userEmail = form.email;
     this.user = new User(
       form.name,
-      "", //phone
+      "", // phone
       form.email,
       form.password,
-      "", //location
+      "", // geo location
       "online"
     )
     this.authService.register_With_Email_Password(this.user);
+  }
+
+
+  uploadPhoto(event) {
+    this.authService.uploadPhoto(event, this.userEmail)
+    console.log(this.userEmail)
   }
 }
